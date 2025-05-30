@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  finrobot:
+    build: .
+    container_name: finrobot
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./OAI_CONFIG_LIST:/app/OAI_CONFIG_LIST
+      - ./config_api_keys:/app/config_api_keys
+      - ./report:/app/report
+      - ./tutorials_beginner:/app/tutorials_beginner
+      - ./tutorials_advanced:/app/tutorials_advanced
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped 
